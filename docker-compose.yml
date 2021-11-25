@@ -8,9 +8,13 @@ services:
     ports:
       - 8000:8000
     environment:
-      - MT_API_URL=http://localhost:8001/api/v1/translate
+      - MT_API_URL=http://mtapi:8010/api/v1/translate
       - PYTHONPATH=/app/
       - API_TOKEN=''
       - MAX_REQUEST_LENGTH=5000
+    networks:
+      - mtdemo-network
 
-
+networks:
+    mtdemo-network:
+        external: true
